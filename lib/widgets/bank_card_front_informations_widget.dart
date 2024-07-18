@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BankCardWidget extends StatelessWidget {
+class BankCardFrontInformationsWidget extends StatelessWidget {
   final String cardHolderName;
   final String cardNumber;
   final String expiryDate;
   final String bankName;
 
-  const BankCardWidget({
+  /// Constructor for the BankCardFrontInformationsWidget
+  const BankCardFrontInformationsWidget({
     super.key,
     required this.cardHolderName,
     required this.cardNumber,
@@ -17,15 +18,15 @@ class BankCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [Colors.blueAccent, Colors.cyanAccent],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             offset: Offset(0, 6),
@@ -38,27 +39,30 @@ class BankCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            /// Bank name text at the top of the card
             Text(
               bankName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
+
+            /// Card number text
             Text(
               cardNumber,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 22,
                 letterSpacing: 1.5,
               ),
             ),
-            Spacer(),
-            Row(
+            const Spacer(),
+
+            /// Row for labels "Card Holder" and "Expires"
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
@@ -77,12 +81,14 @@ class BankCardWidget extends StatelessWidget {
                 ),
               ],
             ),
+
+            /// Row for card holder's name and expiry date
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   cardHolderName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -90,7 +96,7 @@ class BankCardWidget extends StatelessWidget {
                 ),
                 Text(
                   expiryDate,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

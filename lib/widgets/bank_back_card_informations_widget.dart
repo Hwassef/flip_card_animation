@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BankCardBackWidget extends StatelessWidget {
+class BankCardBackInformationsWidget extends StatelessWidget {
   final String cvv;
   final String cardNumber;
 
-  const BankCardBackWidget({
+  /// Constructor for the BankCardBackWidget
+  const BankCardBackInformationsWidget({
     super.key,
     required this.cvv,
     required this.cardNumber,
@@ -13,15 +14,15 @@ class BankCardBackWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [Colors.blueAccent, Colors.cyanAccent],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             offset: Offset(0, 6),
@@ -34,36 +35,44 @@ class BankCardBackWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            /// Black strip at the top of the card
             Container(
               height: 40,
               color: const Color.fromARGB(255, 48, 47, 47),
-              margin: EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 20),
             ),
+
+            /// White box containing card information
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
+                  /// Label for the signature area
+                  const Text(
                     'Authorized Signature',
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 12,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
+
+                  /// Signature area
                   Container(
                     height: 40,
                     color: Colors.grey[200],
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
+
+                  /// Row containing card number and CVV
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
                         cardNumber,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           letterSpacing: 1.5,
@@ -71,7 +80,7 @@ class BankCardBackWidget extends StatelessWidget {
                       ),
                       Text(
                         cvv,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           letterSpacing: 1.5,
